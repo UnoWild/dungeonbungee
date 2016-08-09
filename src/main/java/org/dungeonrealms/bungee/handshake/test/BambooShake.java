@@ -29,6 +29,6 @@ public class BambooShake extends Handshake
 
     public String a()
     {
-        return "I think Bamboo is mad at me?";
+        return "I think Bamboo is mad at me??";
     }
 }
