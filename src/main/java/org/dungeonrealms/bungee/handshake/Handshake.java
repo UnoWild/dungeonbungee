@@ -17,4 +17,9 @@ public class Handshake
     {
         return side;
     }
+
+    public boolean iSide(Side side)
+    {
+        return side == getSide();
+    }
 }

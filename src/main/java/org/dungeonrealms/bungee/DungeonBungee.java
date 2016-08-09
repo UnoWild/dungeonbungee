@@ -31,6 +31,7 @@ public class DungeonBungee extends Plugin
         log.log(Level.INFO, "Starting up [..]");
 
         instance = this;
+        createConfiguration();
     }
 
     private void createConfiguration()
