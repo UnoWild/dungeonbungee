@@ -5,6 +5,7 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
+import org.dungeonrealms.bungee.event.ReaderCloseEvent;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -61,6 +62,7 @@ public class DungeonBungee extends Plugin
                     } else if (command.contains("N"))
                     {
                         bufferedReader.close();
+                        getProxy().getPluginManager().callEvent(new ReaderCloseEvent(bufferedReader));
                         log.log(Level.INFO, "BufferedReader close, directory not initialized [..]");
                     }
                 } catch (IOException e)
@@ -68,10 +70,10 @@ public class DungeonBungee extends Plugin
                     e.printStackTrace();
                 } finally
                 {
-                    //TODO Nicer cleanup
                     try
                     {
                         bufferedReader.close();
+                        getProxy().getPluginManager().callEvent(new ReaderCloseEvent(bufferedReader));
                     } catch (IOException e)
                     {
                         e.printStackTrace();
@@ -84,6 +86,11 @@ public class DungeonBungee extends Plugin
     public boolean locked()
     {
         return configuration.getBoolean("main.locked");
+    }
+
+    public static Logger getBungeeLogger()
+    {
+        return log;
     }
 
     public static DungeonBungee getInstance()
