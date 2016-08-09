@@ -5,7 +5,7 @@ import java.util.logging.Level;
 /**
  * Created by Giovanni on 9-8-2016.
  */
-public interface IBungeeEvent
+interface IBungeeEvent
 {
     void setLogLevel(Level level);
 
