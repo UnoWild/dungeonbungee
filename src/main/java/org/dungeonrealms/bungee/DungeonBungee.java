@@ -1,6 +1,5 @@
 package org.dungeonrealms.bungee;
 
-
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -19,7 +18,6 @@ import java.util.logging.Logger;
  */
 public class DungeonBungee extends Plugin
 {
-
     private static final Logger log = Logger.getLogger(DungeonBungee.class.getName());
 
     private static DungeonBungee instance;

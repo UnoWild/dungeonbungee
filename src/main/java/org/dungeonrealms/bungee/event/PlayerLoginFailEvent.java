@@ -1,23 +1,22 @@
 package org.dungeonrealms.bungee.event;
 
 import net.md_5.bungee.api.plugin.Event;
+import org.dungeonrealms.bungee.player.VProxiedPlayer;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.logging.Level;
 
 /**
  * Created by Giovanni on 9-8-2016.
  */
-public class ReaderCloseEvent extends Event implements IBungeeEvent
+public class PlayerLoginFailEvent extends Event implements IBungeeEvent
 {
     private Level logLevel;
-    private BufferedReader bufferedReader;
     private String message;
+    private VProxiedPlayer proxiedPlayer;
 
-    public ReaderCloseEvent(BufferedReader bufferedReader) throws IOException
+    public PlayerLoginFailEvent(VProxiedPlayer proxiedPlayer)
     {
-        this.bufferedReader = bufferedReader;
+        this.proxiedPlayer = proxiedPlayer;
     }
 
     @Override
@@ -32,11 +31,6 @@ public class ReaderCloseEvent extends Event implements IBungeeEvent
         this.message = message;
     }
 
-    public BufferedReader getBufferedReader()
-    {
-        return bufferedReader;
-    }
-
     public Level getLogLevel()
     {
         return logLevel;
@@ -45,5 +39,10 @@ public class ReaderCloseEvent extends Event implements IBungeeEvent
     public String getMessage()
     {
         return message;
+    }
+
+    public VProxiedPlayer getProxiedPlayer()
+    {
+        return proxiedPlayer;
     }
 }
