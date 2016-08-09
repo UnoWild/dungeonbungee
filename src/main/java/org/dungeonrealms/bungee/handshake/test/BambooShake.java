@@ -18,7 +18,7 @@ public class BambooShake extends Handshake
     public BambooShake(String message, ProxiedPlayer proxiedPlayer)
     {
         super(Side.SERVER);
-        if (this.getSide() == Side.SERVER)
+        if (this.getSide() == Side.valueOf(message)) //unhandled exception
         {
             DungeonBungee.getBungeeLogger().log(Level.INFO, message);
         } else
